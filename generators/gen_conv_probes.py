@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
-"""Broad-comb (b) item: verify the A4Q draft claim
-  'PTX has no e2m1->e4m3 convert on this architecture; an fp8-compute version
-   of their recipe costs more instructions.'
+"""Verify a convert-path claim from a consumer block-scaled-fp4 attention kernel's
+design: 'there is no direct e2m1->e4m3 convert; an fp8-compute variant of the
+recipe costs more instructions because it must round-trip through f16/f32.'
 Probe direct fp4<->fp8 and fp6<->fp8 packed converts on all six targets.
-Expected: no such format-to-format convert exists (must round-trip via f16/f32),
-which is what makes NVIDIA's QMUL4 recipe unportable to consumer.
+Expected: no such format-to-format convert exists (values round-trip via
+f16/f32) -- the reason a datacenter fp8-scaling recipe does not map one-to-one
+onto the consumer block-scaled fp4 path.
 e2m1x2 lives in .b8 (q), e4m3x2/e5m2x2/e3m2x2/e2m3x2 in .b16 (h).
 """
 import json, os

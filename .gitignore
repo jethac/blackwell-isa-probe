@@ -13,6 +13,7 @@ nvcc_*.err
 /generators/probes.json
 /generators/probes_gap.json
 /generators/probes_conv.json
+/generators/probes_full.json
 /generators/probes_sink.json
 /generators/probes_extra.json
 /harness/probes.json

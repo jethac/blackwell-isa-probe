@@ -1,0 +1,128 @@
+================================================================================
+blackwell-isa-probe -- COMPREHENSIVE FULL-PTX SWEEP: run log
+================================================================================
+Directive: expand from the curated ~296-probe serving-kernel surface to a
+systematic pass over the documented PTX instruction set across the six Blackwell
+targets ("cover all instructions, not just the ones you focused on").
+
+--------------------------------------------------------------------------------
+BOX + TOOLCHAIN
+--------------------------------------------------------------------------------
+Box:        local workstation -- NO cloud box rented. The compile/SASS probes
+            need no GPU (ptxas is a cross-assembler), and a CUDA 13.2 toolkit was
+            already installed, so the whole sweep ran offline at zero cost.
+            Budget used: $0.00 of the ~$5 allotted.
+ptxas:      NVIDIA (R) Ptx optimizing assembler, Cuda compilation tools,
+            release 13.2, V13.2.78 (build cuda_13.2.r13.2/compiler.37668154_0).
+            cuobjdump / nvdisasm: same V13.2.78.
+PTX dialect: .version 9.2 pinned for every probe -- 9.2 is the highest .version
+            this ptxas accepts; it exceeds the Thor (sm_110a) floor of 9.0 and
+            covers every instruction, so the whole matrix is one consistent
+            dialect at one ptxas binary version (V13.2.78, matching the original
+            curated main sweep). Empirically this ptxas does not gate features by
+            .version (cvt.rs and tcgen05 both assemble at 8.8); the only version
+            coupling is the sm_110a target floor, which 9.2 satisfies.
+
+--------------------------------------------------------------------------------
+PROBE COUNT
+--------------------------------------------------------------------------------
+993 single-instruction probes x 6 targets = 5,958 ptxas invocations.
+  304 curated (tensor/memory/sync families 1-7, G1_simd, G3_conv, 25_tensor_extra)
+  689 comprehensive (families 10-24: the rest of the documented PTX ISA)
+Targets: sm_100a(B200) sm_103a(B300) sm_110a(Thor) | sm_120a(RTX50) sm_120f(family) sm_121a(Spark)
+Full run wall time: ~5 min (single-threaded). Output: results/results_full.json (27k lines).
+
+Reject triage (classify() verified against ptxas 13.2's exact strings):
+  ARCH  = "not supported on .target" / "cannot be compiled for architecture"  (real ISA answer)
+  PTXVER= "does not support .target" / "requires PTX ISA .version"            (dialect artifact)
+  OPERAND-TYPE = "arguments mismatch" / "unexpected instruction types"        (bad operand -- fixed in generator)
+  SYNTAX / UNKNOWN-INSTR / OTHER / INVALID
+Across the 689 comprehensive probes there are ZERO PTXVER/SYNTAX artifacts -- every
+non-accept is either a clean ARCH answer or an intentional-negative recorded as such.
+
+--------------------------------------------------------------------------------
+ACCEPT/REJECT PATTERN DISTRIBUTION (cols: 100a 103a 110a | 120a 120f 121a)
+--------------------------------------------------------------------------------
+  YYYYYY  x837   universal accept (common Blackwell baseline)
+  NNNNNN  x 68   rejected on all six (illegal form / absent on every target)
+  NNNYYY  x 68   warp-block-scale camp only (RTX50 / 120f / Spark)
+  YYNNNN  x 11   B200 / B300 only (NOT Thor, NOT consumer)  -- cvt.rs (7) + redux float (4)
+  YYYNNN  x  7   tcgen05 camp only (B200 / B300 / Thor)
+  NNNYNY  x  2   sm_120a & sm_121a only (a-suffix sparse block-scale; not 120f family)
+
+Camp pair differences (993 co-probed each):
+  Spark(121a)  vs 5090(120a):  0 differences   -- Spark ISA == 5090
+  5090(120a)   vs 120f family:  2 differences   -- the sparse block-scaled fp4 MMAs (a-suffix)
+  B200(100a)   vs B300(103a):  0 differences
+  Thor(110a)   vs B200(100a): 11 differences   -- cvt.rs stochastic rounding + redux.sync float min/max
+
+--------------------------------------------------------------------------------
+NEW DELTAS FOUND BY THE COMPREHENSIVE SWEEP (the payoff)
+--------------------------------------------------------------------------------
+Going wide over the rest of PTX (689 new probes) asked: does the per-target
+differentiation continue outside the tensor path? The answer is the useful part:
+
+  * 684 of 689 comprehensive probes assemble IDENTICALLY on all six targets.
+    Integer + extended-precision arithmetic; the whole f32/f64 surface incl.
+    rcp/sqrt/rsqrt/sin/cos/lg2/ex2/tanh + all rounding modes; f16/bf16 scalar and
+    packed arithmetic; compare/select; logic/shift; bit-manip (popc/clz/bfind/
+    brev/bfe/bfi/szext/bmsk/prmt); the ld/st + cache-op + scope + cvt matrix;
+    texture/surface; control flow; barriers/fences/membar; the atomic family
+    (add/min/max/and/or/xor/cas/inc/dec across spaces/scopes, incl f16/bf16/f32/
+    f64/vector/b128); warp-level (vote.sync/match.sync/shfl.sync/activemask/
+    redux.sync int); scalar + SIMD video; special registers -- ALL universal.
+
+  * EXACTLY ONE comprehensive-family probe splits across targets:
+        add.sat.s16x2   ->  NNNYYY  (warp-block-scale camp only)
+    and it is NOT a new phenomenon -- it is the same PTX 9.2 SATURATING packed-int
+    SIMD family as the u8x4/s8x4 ops (curated footnote 7). The NON-saturating
+    packed forms (add/sub/min/max.s16x2) are universal; only the saturating
+    variants (add.sat.{s16x2,u16x2,u8x4,s8x4,...}) are camp-split.
+    SASS-confirmed on sm_120a: add.sat.s16x2 -> VIADD.S16x2.ISAT ;
+    add.sat.u8x4 -> VIADD.U8x4.ISAT  (real saturating SIMD hardware, .ISAT lane,
+    not a PRMT emulation). On the tcgen05 camp sm_100a the non-saturating
+    add.s16x2 -> VIADD.16x2, and the saturating PTX form is arch-rejected.
+
+  * A few probes reject on ALL six (an ISA fact, not an arch split): the
+    deprecated non-.sync warp instructions (vote.all / vote.ballot / shfl.up
+    without .sync) are gone on every Blackwell target; .oob is a half/bhalf-only
+    fma modifier (fma.rn.oob.f32 rejects everywhere); no packed .u8x4 abs-diff.
+
+Bottom line for kernel authors: portability guards are needed ONLY for the five
+families the curated sweep already mapped -- the tensor-core MMA path (tcgen05 vs
+mma.sync block-scaled), cvt.rs, the float redux.sync, saturating packed-SIMD, and
+sparse block-scale. The entire rest of PTX is one Blackwell baseline. That
+confirmed common baseline is what going comprehensive buys.
+
+--------------------------------------------------------------------------------
+COVERAGE STATEMENT
+--------------------------------------------------------------------------------
+Covers the documented PTX ISA instruction set as implemented by ptxas 13.2 (which
+accepts PTX ISA up to .version 9.2), probed across all six Blackwell targets.
+993 single-instruction probes (304 curated + 689 comprehensive) x 6 = 5,958 ptxas
+invocations. Sampling rule: type-parametrized instructions probed across
+representative type variants (int s32/u32/s64/u64 + a 16-bit sample; float
+f32/f64; half f16/f16x2/bf16/bf16x2; bitwise b16/b32/b64), each rounding mode
+sampled >=1x per instruction that carries one, ftz/sat sampled on f32, one
+representative state space / cache-op / memory-scope per ld/st/atom -- NOT the
+full cross product (where a whole type family matters -- the 21 kind::f8f6f4 mixes,
+the 25 mxf8f6f4 A*B mixes -- it is enumerated in full). Known gaps: (1) PTX ISA
+9.3+ instructions (e.g. fabric.*) are outside this ptxas snapshot by construction;
+(2) brx.idx needs a .branchtargets table the single-instruction harness doesn't
+model; (3) texture/surface probed in the unified/bindless form only; (4) the
+9_sink SASS-dump duplicates + a couple legacy video spellings live in the curated
+data/prose, not re-emitted in results_full.json. This is a representative-variant
+sweep, not every permutation.
+
+--------------------------------------------------------------------------------
+DELIVERABLES
+--------------------------------------------------------------------------------
+  results/results_full.json   the 993-probe x 6-target comprehensive matrix (raw value)
+  generators/gen_probes_full.py  comprehensive generator (folds in curated + adds families 10-25)
+  harness/runner.py           six-target ARCHES, per-target PTX-version floor, tightened reject triage
+  results/summarize.py        regenerates the matrix + cross-target deltas + camp summary + coverage
+  README.md                   reframed curated -> comprehensive; plain-language labels; deltas up top
+  results/j_probe_full_raw.txt  this log
+
+Pushed commit: <recorded below after push>
+================================================================================
