@@ -1,19 +1,19 @@
 # blackwell-isa-probe
 
-**The table NVIDIA doesn't publish: which tensor-core instructions each Blackwell chip actually has — decided by `ptxas`, one single-instruction kernel at a time.**
+**A consolidated table of which tensor-core instructions each Blackwell chip actually has — decided by `ptxas`, one single-instruction kernel at a time.**
 
 296 single-instruction PTX probes × 6 Blackwell targets ≈ 1,700 `ptxas` invocations. Every cell is an assemble-or-arch-reject verdict from the toolchain that builds the binaries, with the load-bearing accepts disassembled to confirm real hardware lowering. The raw verdict matrix is [`results/results.json`](results/results.json); this repo is the generator, the harness, and the data behind it.
 
-> Reproducibility companion to the article **"NVIDIA won't tell you which instructions your GPU has, so I asked `ptxas` 296 times."**
+> Reproducibility companion to the article **"Which tensor-core instructions does each Blackwell chip have? I asked `ptxas` 296 times."**
 > *(Link forthcoming — the article isn't published yet.)*
 
 ---
 
 ## Why
 
-Nowhere does NVIDIA publish a table of which tensor-core instructions exist on which Blackwell chip. The PTX ISA manual scatters the answer across hundreds of "Target ISA Notes" paragraphs written in a family-suffix algebra (`sm_120a` vs `sm_120f` vs "sm_100 or higher"). The CUDA Programming Guide's feature table says FP4/FP6 tensor cores are "Yes" for datacenter and consumer alike — true only if you don't mind that they're "Yes" via *completely different instructions* that don't run on each other's silicon. Community folklore fills the gaps, and it's wrong in both directions.
+The answer isn't consolidated in one place. There's no single published table of which tensor-core instructions exist on which Blackwell chip; the PTX ISA manual carries it across hundreds of "Target ISA Notes" paragraphs written in a family-suffix algebra (`sm_120a` vs `sm_120f` vs "sm_100 or higher"). The CUDA Programming Guide's feature table says FP4/FP6 tensor cores are "Yes" for datacenter and consumer alike — and that's accurate; the nuance is that the two camps reach FP4 through *different instruction families*, so a "Yes" in the datacenter column and a "Yes" in the consumer column aren't the same instruction. Community folklore fills the gaps, and it's often wrong in both directions.
 
-But there's an oracle that can't be wrong, because it's the thing that actually builds the binaries: **`ptxas`**. Feed it a minimal kernel containing exactly one instruction, target each chip, and it either assembles or tells you `not supported on .target`. Do that 296 times against six targets, triage every reject by error text, and disassemble the interesting accepts to check the SASS is real hardware and not a software trampoline. That's this repo.
+But there's a definitive check, and it's the thing that actually builds the binaries: **`ptxas`**. Feed it a minimal kernel containing exactly one instruction, target each chip, and it either assembles or tells you `not supported on .target`. Do that 296 times against six targets, triage every reject by error text, and disassemble the interesting accepts to check the SASS is real hardware and not a software trampoline. That's this repo.
 
 ## The six targets
 
@@ -76,7 +76,7 @@ Legend: ✅ assembles · ❌ arch-reject · ⚠️ assembles, but read the footn
 
 ² Real `TMALDG`/`TMASTG` SASS on consumer, byte-identical machinery to B200 — for `shared::cta` destinations. Cluster-destination copies carry a compiler-inserted syscall guard on the remote-rank path.
 
-³ Accepted on 12.x with an actual `ptxas` *advisory warning*, and it lowers to a plain **unicast** `UTMALDG.2D` — byte-identical to the non-multicast form, zero `UTMALDG.MULTICAST` opcodes, versus real multicast on B200. Accepted ≠ implemented, confirmed at the SASS level.
+³ Accepted on 12.x with an actual `ptxas` *advisory warning*, and it lowers to a plain **unicast** `UTMALDG.2D` — byte-identical to the non-multicast form, zero `UTMALDG.MULTICAST` opcodes, versus real multicast on B200. So on 12.x, compile-acceptance here doesn't imply a hardware multicast path — confirmed at the SASS level.
 
 ⁴ The entire cluster ISA assembles to genuine CGA hardware SASS on consumer (`CGABAR_ARV`/`CGABAR_WAIT`, same bytes as B200) — **and it launches at runtime.** On an RTX PRO 6000, multi-CTA clusters launch cleanly, distributed shared memory works (a rank reads another rank's smem through `cluster.map_shared_rank`, verified against a no-barrier race control), and the passing kernel disassembles to real `UCGABAR_ARV`/`UCGABAR_WAIT`. Portable cluster size 8 works across the consumer camp; `sm120` also takes 16 via `NonPortableClusterSizeAllowed`, while Spark (`sm121`) caps at 8.
 
