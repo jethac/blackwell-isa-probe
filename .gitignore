@@ -1,0 +1,43 @@
+# --- generated probe artifacts (ptxas / nvcc outputs) ---
+*.ptx
+*.cubin
+*.cubin.*
+*.o
+*.obj
+*.fatbin
+sass_*.txt
+nvcc_*.err
+*.err
+
+# --- generated probe manifests (emitted next to the generators/runner) ---
+/generators/probes.json
+/generators/probes_gap.json
+/generators/probes_conv.json
+/generators/probes_sink.json
+/generators/probes_extra.json
+/harness/probes.json
+/harness/probes_gap.json
+/harness/probes_conv.json
+# runner.py writes its results.json next to itself (harness/); the committed
+# matrix lives in results/ and is NOT ignored.
+/harness/results.json
+/harness/gap_results.json
+
+# --- runtime scratch dirs the harness creates ---
+/harness/probes/
+/harness/sinks/
+/harness/sass/
+sinks/
+build/
+dist/
+
+# --- python ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- editor / OS noise ---
+.DS_Store
+.idea/
+.vscode/
