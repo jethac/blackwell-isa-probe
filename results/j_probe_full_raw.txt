@@ -124,5 +124,7 @@ DELIVERABLES
   README.md                   reframed curated -> comprehensive; plain-language labels; deltas up top
   results/j_probe_full_raw.txt  this log
 
-Pushed commit: <recorded below after push>
+Pushed commit: a688a33fa5a69f20efa644c933be851fffe3ebd8
+               "Comprehensive full-PTX ISA sweep: 993 probes x 6 Blackwell targets"
+               (main, jethac/blackwell-isa-probe)
 ================================================================================
