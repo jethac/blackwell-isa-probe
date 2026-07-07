@@ -42,3 +42,5 @@ venv/
 .DS_Store
 .idea/
 .vscode/
+/generators/probes_ptx93.json
+/results/_*.log

@@ -1,0 +1,477 @@
+{
+ "30_fabric|fabric.submit": {
+  "family": "30_fabric",
+  "name": "fabric.submit",
+  "code": "fabric.submit;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "30_fabric|fabric.submit.op_restrict::fetching": {
+  "family": "30_fabric",
+  "name": "fabric.submit.op_restrict::fetching",
+  "code": "fabric.submit.op_restrict::fetching;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "30_fabric|fabric.wait.sync_restrict::reads": {
+  "family": "30_fabric",
+  "name": "fabric.wait.sync_restrict::reads",
+  "code": "fabric.wait.sync_restrict::reads;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "31_multimem_async|multimem.st.async.release.sys.f32": {
+  "family": "31_multimem_async",
+  "name": "multimem.st.async.release.sys.f32",
+  "code": "multimem.st.async.release.sys.global.f32 [rd0], f0;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "31_multimem_async|multimem.red.async.release.sys.add.u32": {
+  "family": "31_multimem_async",
+  "name": "multimem.red.async.release.sys.add.u32",
+  "code": "multimem.red.async.release.sys.global.add.u32 [rd0], r0;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "33_async_scope|red.async.release.sys.add.u32": {
+  "family": "33_async_scope",
+  "name": "red.async.release.sys.add.u32",
+  "code": "red.async.release.sys.global.add.u32 [rd0], r0;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "33_async_scope|red.async.release.sys.min.s32": {
+  "family": "33_async_scope",
+  "name": "red.async.release.sys.min.s32",
+  "code": "red.async.release.sys.global.min.s32 [rd0], r0;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "34_fence_fabric|fence.proxy.fabric.release.sys": {
+  "family": "34_fence_fabric",
+  "name": "fence.proxy.fabric.release.sys",
+  "code": "fence.proxy.fabric::generic.alias.release.sys;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "34_fence_fabric|fence.proxy.fabric.acquire.sys": {
+  "family": "34_fence_fabric",
+  "name": "fence.proxy.fabric.acquire.sys",
+  "code": "fence.proxy.fabric::generic.alias.acquire.sys;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "35_clmad|clmad.lo.u64": {
+  "family": "35_clmad",
+  "name": "clmad.lo.u64",
+  "code": "clmad.lo.u64 rd0, rd1, rd2, rd3;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "35_clmad|clmad.hi.u64": {
+  "family": "35_clmad",
+  "name": "clmad.hi.u64",
+  "code": "clmad.hi.u64 rd0, rd1, rd2, rd3;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "36_pragma|pragma.mma_throughput": {
+  "family": "36_pragma",
+  "name": "pragma.mma_throughput",
+  "code": ".pragma \"mma_throughput\";",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "37_mbarrier93|mbarrier.try_wait.phase_type::primary": {
+  "family": "37_mbarrier93",
+  "name": "mbarrier.try_wait.phase_type::primary",
+  "code": "mbarrier.try_wait.phase_type::primary.shared::cta.b64 p0, [rd0], rd1;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "37_mbarrier93|mbarrier.test_wait.phase_type::primary": {
+  "family": "37_mbarrier93",
+  "name": "mbarrier.test_wait.phase_type::primary",
+  "code": "mbarrier.test_wait.phase_type::primary.shared::cta.b64 p0, [rd0], rd1;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "37_mbarrier93|mbarrier.try_wait.parity.phase_type::primary": {
+  "family": "37_mbarrier93",
+  "name": "mbarrier.try_wait.parity.phase_type::primary",
+  "code": "mbarrier.try_wait.parity.phase_type::primary.shared::cta.b64 p0, [rd0], r0;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "37_mbarrier93|mbarrier.check_layout.layout::v1": {
+  "family": "37_mbarrier93",
+  "name": "mbarrier.check_layout.layout::v1",
+  "code": "mbarrier.check_layout.layout::v1.shared::cta.b64 p0, [rd0];",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "37_mbarrier93|mbarrier.check_layout.layout::v0": {
+  "family": "37_mbarrier93",
+  "name": "mbarrier.check_layout.layout::v0",
+  "code": "mbarrier.check_layout.layout::v0.shared::cta.b64 p0, [rd0];",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "37_mbarrier93|mbarrier.init.layout::v1": {
+  "family": "37_mbarrier93",
+  "name": "mbarrier.init.layout::v1",
+  "code": "mbarrier.init.layout::v1.shared::cta.b64 [rd0], r0;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ },
+ "37_mbarrier93|mbarrier.pending_count.layout::v0": {
+  "family": "37_mbarrier93",
+  "name": "mbarrier.pending_count.layout::v0",
+  "code": "mbarrier.pending_count.layout::v0.b64 r0, rd1;",
+  "res": {
+   "sm_100a": {
+    "status": "ACCEPT"
+   },
+   "sm_103a": {
+    "status": "ACCEPT"
+   },
+   "sm_110a": {
+    "status": "ACCEPT"
+   },
+   "sm_120a": {
+    "status": "ACCEPT"
+   },
+   "sm_120f": {
+    "status": "ACCEPT"
+   },
+   "sm_121a": {
+    "status": "ACCEPT"
+   }
+  }
+ }
+}
