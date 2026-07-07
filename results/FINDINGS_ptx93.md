@@ -44,9 +44,9 @@ Scored by *native-on-consumer × library-skipped × serving-critical*:
 
 **Verdict: no new consumer-Blackwell kernel door in the PTX 9.3 delta.** The novelty is real but aimed at multi-GPU fabric/collectives and crypto — not consumer-Blackwell serving kernels. The existing warp-level block-scale MMA path is still where the value is; 9.3 opened no new one on this silicon.
 
-## Two reportable ptxas 13.3.73 bugs (found in passing)
-1. **Internal compiler error (C7907)** on `red.async.release.sys.global.add.u32 [a], v, [mbar];` (sys form with a trailing mbarrier operand). The no-mbar form assembles fine.
-2. **`clmad` miscompile** on sm_121a: `clmad.lo.u64` emits no carry-less arithmetic and stores the wrong operand. (Compare a datacenter target before filing.)
+## Two ptxas 13.3.73 bugs (found in passing, filed with NVIDIA + public repros)
+1. **`clmad` miscompile** — on all four Blackwell targets (sm_100a/103a/120a/121a), `clmad.{lo,hi}.u64` accepts but emits no carry-less arithmetic and stores an input operand instead of `clmul(a,b) ^ c` (spec §9.7.1.5). No prior report found — apparently novel. Repro: https://github.com/jethac/ptxas-clmad-miscompile
+2. **Internal compiler error (C7907)** on `red.async.release.sys.global.add.u32 [a], v, [mbar];` (sys form with a trailing mbarrier operand); the no-mbar form assembles fine. C7907 is a known Blackwell ICE class (NVIDIA/numba-cuda#725, state-spaces/mamba#904, triton-lang/triton#9933 — all large Triton kernels); this is a single-instruction, register-pressure-free repro. Repro: https://github.com/jethac/ptxas-red-async-c7907-ice
 
 ## Artifacts
 - `results/results_full_ptx93.json` (x86 9.3) / `results/results_full_ptx93_arm.json` (GB10 9.3) — full matrices.

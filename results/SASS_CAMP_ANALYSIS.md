@@ -79,8 +79,11 @@ Validation: `add.s32`, `rcp.rn.f32`, `atom.global.min` → **no-marker-diff**;
 result, reproduced automatically and exhaustively. (v1 harness
 `sass_camp_analysis.py` + `sass_camp_report.json` retained for comparison.)
 
-## E. ptxas 13.3.73 bugs (no new ICEs in this sweep)
+## E. ptxas 13.3.73 bugs (filed with NVIDIA; public repros)
 - `clmad.{lo,hi}.u64` — miscompiled on all four Blackwell targets (accepts, emits
-  no carry-less arithmetic, stores the wrong operand; spec §9.7.1.5 = `clmul(a,b)+c`).
+  no carry-less arithmetic, stores an input operand; spec §9.7.1.5 = `clmul(a,b)^c`).
+  No prior report found — apparently novel. → `github.com/jethac/ptxas-clmad-miscompile`
 - `red.async.release.sys…add.u32 [a],v,[mbar]` (mbarrier form) — C7907 internal
-  compiler error / segfault, datacenter and consumer alike.
+  compiler error / segfault, datacenter and consumer alike. A known Blackwell ICE
+  class (NVIDIA/numba-cuda#725, state-spaces/mamba#904, triton-lang/triton#9933);
+  this is a single-instruction repro. → `github.com/jethac/ptxas-red-async-c7907-ice`
