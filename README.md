@@ -117,9 +117,19 @@ Legend: ✅ assembles · ❌ arch-reject · ⚠️ assembles, but read the footn
 python results/summarize.py
 ```
 
+## CUDA 13.3 / PTX 9.3 addendum
+
+The matrix above is the original **ptxas 13.2 / PTX 9.2** sweep. A follow-up pass on **CUDA 13.3 (ptxas 13.3.73 / PTX 9.3)** adds two things:
+
+- **The PTX 9.3 delta** — 23 instructions new in 9.3 (`fabric.*`, async `multimem`/`red.async`, `fence.proxy` fabric, `clmad`, the `mma_throughput` pragma, extended `mbarrier`), grammar-verified against the manual and the live oracle: [`generators/gen_probes_ptx93.py`](generators/gen_probes_ptx93.py) → [`results/results_ptx93.json`](results/results_ptx93.json). Re-running the full 993-probe sweep on 13.3 and diffing vs 13.2 ([`results/diff_9293.py`](results/diff_9293.py)) shows **0 accept↔reject flips across all six targets** — the 13.2 matrix holds on 13.3; all 9.3 news is additive. Verified on x86 **and** a real GB10 DGX Spark (arm64), byte-identical.
+
+- **A SASS-level camp analysis** — the compile matrix says "assembles"; the *machine code* is where the datacenter-vs-consumer split actually lives. [`harness/sass_camp_analysis2.py`](harness/sass_camp_analysis2.py) sink-wraps every probe and classifies by capability marker; [`results/summarize_camp.py`](results/summarize_camp.py) regenerates [`results/CAMP_SPLIT.md`](results/CAMP_SPLIT.md) from the raw data. Result: 68 consumer-only + 7 datacenter-only (+11 B200/B300-subset) at compile; **20 instructions that compile on both camps but where consumer traps (`BPT`), software-emulates (`CALL` trampoline), or degrades to a synchronous fallback (`ERRBAR`)**; the rest lower identically, and **sm120 ≡ sm121**. Writeup: [`results/SASS_CAMP_ANALYSIS.md`](results/SASS_CAMP_ANALYSIS.md).
+
+Two `ptxas` 13.3.73 bugs fell out, filed with NVIDIA with standalone repros: a **`clmad` miscompile** on all Blackwell targets ([jethac/ptxas-clmad-miscompile](https://github.com/jethac/ptxas-clmad-miscompile) — apparently novel) and a single-instruction **C7907 internal compiler error** on `red.async`+mbarrier ([jethac/ptxas-red-async-c7907-ice](https://github.com/jethac/ptxas-red-async-c7907-ice)).
+
 ## How to run
 
-**Requirements:** a CUDA 13.2 toolkit on `PATH` (`ptxas`, `nvcc`, `cuobjdump`, `nvdisasm`) and Python 3. No GPU is needed for the compile probes (`ptxas` is a cross-assembler); the cluster runtime probe ([`probes/j_cluster_probe.cu`](probes/j_cluster_probe.cu)) does need a consumer Blackwell card.
+**Requirements:** a CUDA **13.2** toolkit on `PATH` (`ptxas`, `nvcc`, `cuobjdump`, `nvdisasm`) for the original PTX-9.2 matrix, **or CUDA 13.3 (ptxas 13.3.x) for the PTX 9.3 delta and the SASS camp analysis above** (`pip install nvidia-cuda-nvcc==13.3.73` gives a standalone `ptxas`; point the harness at it with the `PTXAS` env var), plus Python 3. No GPU is needed for the compile probes (`ptxas` is a cross-assembler); the cluster runtime probe ([`probes/j_cluster_probe.cu`](probes/j_cluster_probe.cu)) does need a consumer Blackwell card.
 
 Comprehensive sweep — generate the full manifest, then run the oracle over all six targets:
 
@@ -147,7 +157,7 @@ This repo covers the **documented PTX ISA instruction set as implemented by `ptx
 **Sampling rule.** Type-parametrized instructions are probed across the meaningful type variants where a difference can hide (integer `s32`/`u32`/`s64`/`u64` plus a 16-bit sample; float `f32`/`f64`; half `f16`/`f16x2`/`bf16`/`bf16x2`; bitwise `b16`/`b32`/`b64`), each rounding mode sampled at least once per instruction that carries one, `ftz`/`sat` sampled on `f32`, and one representative state space / cache operator / memory scope per `ld`/`st`/`atom` — **not** the full cross product. This is a representative-variant sweep, not every permutation; where a whole type family matters (the 21 `kind::f8f6f4` FP6/FP4 mixes, the 25 `mxf8f6f4` A×B mixes) it is enumerated in full.
 
 **Known gaps**, stated plainly:
-- Instructions introduced only in **PTX ISA 9.3+** (for example the `fabric.*` distributed-memory family) are outside this `ptxas` snapshot by construction — a probe for them reports "unknown instruction" on all six targets, which says nothing about the targets.
+- Instructions introduced only in **PTX ISA 9.3+** (for example the `fabric.*` distributed-memory family) are outside the *original 13.2/9.2* snapshot by construction — a probe for them reports "unknown instruction" on all six targets under `ptxas` 13.2. They are now covered separately by the **CUDA 13.3 / PTX 9.3 addendum** above (`generators/gen_probes_ptx93.py`).
 - **`brx.idx`** (indexed branch) is not probed: it needs a `.branchtargets` table and the labels it indexes, which the single-instruction harness does not model.
 - **Texture/surface** is probed in the unified/bindless (register-handle) form only.
 - The SASS-dump sink duplicates (curated family `9_sink`) and a couple of legacy video spellings are documented in the curated data and prose rather than re-emitted in `results_full.json`.
@@ -156,7 +166,7 @@ The claim is precise: *this covers the documented PTX 9.2 instruction set as pro
 
 ## Caveats
 
-- **This is `ptxas` 13.2's worldview.** The results are a **version snapshot**: `ptxas` **V13.2.78** for the full `results_full.json` sweep (and for the original curated `results.json`; `results/gap_results.json` was **V13.2.51**). Older toolchains reject things this one accepts (there are community reports of 12.8-era `ptxas` refusing dense NVFP4 on 120f); newer ones will differ again. A snapshot with a version number, not scripture.
+- **This is `ptxas` 13.2's worldview.** The results are a **version snapshot**: `ptxas` **V13.2.78** for the full `results_full.json` sweep (and for the original curated `results.json`; `results/gap_results.json` was **V13.2.51**). Older toolchains reject things this one accepts (there are community reports of 12.8-era `ptxas` refusing dense NVFP4 on 120f); newer ones will differ again. A snapshot with a version number, not scripture. **Checked:** the full 993-probe matrix was re-run on `ptxas` **V13.3.73** (PTX 9.3) and diffed — **0 accept↔reject flips across all six targets** (`results/diff_9293.py`, `results/results_full_ptx93.json`); the 13.2 matrix holds on 13.3. See the *CUDA 13.3 / PTX 9.3 addendum*.
 - **Acceptance ≠ performance.** Everything relied on was disassembled to confirm real hardware lowering — that is how the multicast unicast-lowering and the zero-SASS `setmaxnreg` were caught. For compile-only rows, ✅ means "the ISA admits it," nothing about throughput.
 - **The compile oracle can't see the runtime.** For the cluster row — where the method's honest limit met a decade of "5090s can't launch clusters" folklore — we ran the 20-line runtime experiment. Docs right, folklore wrong.
 - **Six targets, one harness bug we caught and fixed.** The first Thor column was wrong: `sm_110` needs PTX ISA 9.0+ and the auto-version-upgrade didn't catch that specific error form, so cells recorded "rejected" that were really "the harness sent an old dialect." Re-probed and fixed (`extend_archs.py`, and a per-target version floor in `runner.py`) — a reminder that compile-probing lies most confidently about the target you added last. The comprehensive sweep triages every reject by error string precisely so that a syntax/operand/version artifact is never recorded as an arch answer.
@@ -171,11 +181,16 @@ generators/
   gen_probes_full.py   the comprehensive generator: folds in the curated families and
                        adds the rest of the documented PTX instruction set (families 10-25)
   gen_sinks.py         load->op->store kernels for SASS confirmation
+  gen_probes_ptx93.py  [13.3] the PTX 9.3 delta (23 probes: fabric, async multimem/red,
+                       clmad, mma_throughput, extended mbarrier)
 harness/
   runner.py            the ptxas oracle: wrap one instruction, assemble per target, record
-                       the verdict; six-target ARCHES, per-target PTX-version floor, reject triage
+                       the verdict; six-target ARCHES, per-target PTX-version floor, reject
+                       triage; MAX_PTX_VERSION 9.3 + a PTXAS env var to pin the toolchain
   extend_archs.py      how the sm_103a/sm_110a columns were first added (+ the Thor floor fix)
   run_gap.sh           the gap-fill orchestrator (as-run record; flat-dir layout)
+  sass_camp_analysis2.py [13.3] rigorous SASS camp diff: sink-wrapped + marker-classified
+  sass_camp_analysis.py  [13.3] the first-pass (opcode-set) camp diff, kept for comparison
 probes/
   fmnmx3.cu            3-input min/max SASS fusion probe (FMNMX3 / VIMNMX3)
   j_cluster_probe.cu   the cluster RUNTIME experiment (launch + DSM + cluster.sync)
@@ -186,6 +201,12 @@ results/
   gap_results.json     the 39 gap-fill probes (SIMD int + converts), 6 targets
   summarize.py         regenerate the matrix + cross-target deltas + camp summary from the JSON
   j_probe_full_raw.txt the run log: box, ptxas version, probe count, deltas, coverage, commit
+  --- CUDA 13.3 / PTX 9.3 addendum ---
+  results_ptx93.json / results_full_ptx93.json (+ _arm)  9.3 delta + full re-run, x86 & GB10
+  diff_9293.py         the 9.2 -> 9.3 verdict diff (0 flips)
+  sass_camp_report2.json  rigorous SASS marker report (sink-wrapped)
+  summarize_camp.py -> CAMP_SPLIT.md   machine-generated camp-split tables
+  SASS_CAMP_ANALYSIS.md / FINDINGS_ptx93.md   the writeups
 ```
 
 ## Provenance
