@@ -20,7 +20,7 @@ ARCHES = ["sm_100a", "sm_103a", "sm_110a", "sm_120a", "sm_120f", "sm_121a"]
 # it here to avoid recording a dialect artifact as an arch answer. (See the
 # note in extend_archs.py; that was a real harness bug in the first Thor pass.)
 VERSION_FLOOR = {"sm_110a": "9.0"}
-MAX_PTX_VERSION = "9.2"   # highest .version ptxas 13.2 accepts
+MAX_PTX_VERSION = "9.3"   # highest .version ptxas 13.3 accepts (was 9.2 on 13.2)
 
 STD_DECLS = """\
     .reg .f32 f<32>;
@@ -99,7 +99,9 @@ def classify(err):
     return "OTHER"
 
 def run_ptxas(ptx_path, arch, out_path):
-    cmd = ["ptxas", "-arch=" + arch, ptx_path, "-o", out_path]
+    # PTXAS env var lets us pin an exact toolchain (e.g. 13.2 vs 13.3) by full
+    # path; defaults to whatever "ptxas" resolves to on PATH.
+    cmd = [os.environ.get("PTXAS", "ptxas"), "-arch=" + arch, ptx_path, "-o", out_path]
     p = subprocess.run(cmd, capture_output=True, text=True, timeout=120)
     return p.returncode, (p.stderr or "") + (p.stdout or "")
 

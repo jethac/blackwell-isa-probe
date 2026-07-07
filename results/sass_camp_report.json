@@ -1,0 +1,1682 @@
+{
+ "summary": {
+  "compile-fail": 156,
+  "no-sass": 649,
+  "identical": 177,
+  "camp-split:opcode": 26,
+  "camp-split:trap": 4,
+  "camp-split:errbar": 4
+ },
+ "splits": {
+  "1_blockscale_mma|mxf4.m16n8k64.sv1X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k64.sv1X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k64.sv2X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k64.sv2X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k64.sv4X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k64.sv4X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k32.sv1X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k32.sv1X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k32.sv2X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k32.sv2X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k32.sv4X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4.m16n8k32.sv4X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k64.sv1X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k64.sv1X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k64.sv2X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k64.sv2X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k64.sv4X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k64.sv4X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k32.sv1X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k32.sv1X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k32.sv2X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k32.sv2X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k32.sv4X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.m16n8k32.sv4X.ue4m3.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e4m3xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e4m3xe5m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e4m3xe3m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e4m3xe2m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e4m3xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e5m2xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e5m2xe5m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e5m2xe3m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e5m2xe2m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e5m2xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e3m2xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e3m2xe5m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e3m2xe3m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e3m2xe2m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e3m2xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m3xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m3xe5m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m3xe3m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m3xe2m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m3xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m1xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m1xe5m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m1xe3m2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m1xe2m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue8m0.e2m1xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv1X.ue4m3.e4m3xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k32.sv2X.ue8m0.e4m3xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf8f6f4.k64.sv1X.ue8m0.e4m3xe4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.k64.sv4X.ue4m3.e4m3xe2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.k64.sv4X.ue4m3.f16acc": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "1_blockscale_mma|mxf4nvf4.k64.sv4X.ue4m3.colrow": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e4m3.e3m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e4m3.e2m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e4m3.e2m1.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e5m2.e3m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e5m2.e2m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e5m2.e2m1.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e3m2.e4m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e3m2.e5m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e3m2.e3m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e3m2.e2m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e3m2.e2m1.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m3.e4m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m3.e5m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m3.e3m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m3.e2m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m3.e2m1.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m1.e4m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m1.e5m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m1.e3m2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m1.e2m3.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|kindf8f6f4.k32.f32.e2m1.e2m1.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_plain_mma|nokindf4.k32.f32.e2m1.e2m1.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "2_sparse_mma|sp.m16n8k64.f32.e4m3.e4m3.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "CALL",
+     "CALL"
+    ],
+    "consumer": []
+   }
+  },
+  "2_sparse_mma|sp_om.m16n8k64.f32.e4m3.e4m3.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "CALL",
+     "CALL"
+    ],
+    "consumer": []
+   }
+  },
+  "2_sparse_mma|sp_om.kindf8f6f4.m16n8k64.f32.e4m3.e4m3.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "CALL",
+     "CALL"
+    ],
+    "consumer": []
+   }
+  },
+  "2_sparse_mma|sp_om.kindf8f6f4.m16n8k64.f32.e2m1.e2m1.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_sparse_mma|sp_om.mxf4nvf4.bs.k128.sv4X.ue4m3": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_sparse_mma|sp_om.mxf4.bs.k128.sv2X.ue8m0": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "2_sparse_mma|sp_om.mxf8f6f4.bs.k64.sv1X.ue8m0": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "3_cvt|e2m1x2.f32.rz.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e2m1x2.f32.rp.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e2m1x2.f32.rn.nosat": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e2m3x2.f32.rz.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e2m3x2.f32.rp.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e2m3x2.f32.rn.nosat": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e3m2x2.f32.rz.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e3m2x2.f32.rp.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e3m2x2.f32.rn.nosat": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e4m3x2.f32.rz.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e4m3x2.f32.rp.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e4m3x2.f32.rn.nosat": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e5m2x2.f32.rz.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e5m2x2.f32.rp.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|e5m2x2.f32.rn.nosat": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|ue8m0x2.f32.rn.satfinite": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|ue8m0x2.f32.rn.nosat": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|f16x2.ue8m0x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.f16x2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.bf16x2.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.satfinite.e4m3x4.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.satfinite.e5m2x4.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.satfinite.e2m1x4.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.satfinite.e3m2x4.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.satfinite.e2m3x4.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "3_cvt|rs.ue8m0x4.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "5_async|cp.async.bulk.g2s.cluster": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "USHF",
+     "UPRMT",
+     "ELECT",
+     "UBLKCP"
+    ],
+    "consumer": [
+     "S2UR",
+     "USHF",
+     "UISETP",
+     "LEPC",
+     "CALL",
+     "USHF",
+     "UPRMT",
+     "ELECT",
+     "UBLKCP"
+    ]
+   }
+  },
+  "5_async|cp.async.bulk.tensor.1d.g2s.cluster": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "UTMALDG"
+    ],
+    "consumer": [
+     "S2UR",
+     "USHF",
+     "IADD",
+     "UISETP",
+     "STL",
+     "LEPC",
+     "CALL",
+     "ELECT",
+     "UTMALDG"
+    ]
+   }
+  },
+  "5_async|cp.async.bulk.tensor.2d.g2s.cluster": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "UTMALDG"
+    ],
+    "consumer": [
+     "S2UR",
+     "USHF",
+     "IADD",
+     "UISETP",
+     "STL",
+     "LEPC",
+     "CALL",
+     "ELECT",
+     "UTMALDG"
+    ]
+   }
+  },
+  "5_async|cp.async.bulk.tensor.3d.g2s.cluster": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "UTMALDG"
+    ],
+    "consumer": [
+     "S2UR",
+     "USHF",
+     "IADD",
+     "UISETP",
+     "STL",
+     "LEPC",
+     "CALL",
+     "ELECT",
+     "UTMALDG"
+    ]
+   }
+  },
+  "5_async|cp.async.bulk.tensor.4d.g2s.cluster": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "UTMALDG"
+    ],
+    "consumer": [
+     "S2UR",
+     "USHF",
+     "IADD",
+     "UISETP",
+     "STL",
+     "LEPC",
+     "CALL",
+     "ELECT",
+     "UTMALDG"
+    ]
+   }
+  },
+  "5_async|cp.async.bulk.tensor.5d.g2s.cluster": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "UTMALDG"
+    ],
+    "consumer": [
+     "S2UR",
+     "USHF",
+     "IADD",
+     "UISETP",
+     "STL",
+     "LEPC",
+     "CALL",
+     "ELECT",
+     "UTMALDG"
+    ]
+   }
+  },
+  "5_async|cp.async.bulk.tensor.3d.im2col.g2s.cluster": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "UPRMT",
+     "ELECT",
+     "UTMALDG"
+    ],
+    "consumer": [
+     "S2UR",
+     "USHF",
+     "IADD",
+     "UISETP",
+     "STL",
+     "LEPC",
+     "CALL",
+     "UPRMT",
+     "ELECT",
+     "UTMALDG"
+    ]
+   }
+  },
+  "5_async|tensormap.cp_fenceproxy": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "LDS",
+     "ATOMG"
+    ],
+    "consumer": [
+     "HFMA2",
+     "IADD",
+     "LDS",
+     "ATOMG"
+    ]
+   }
+  },
+  "6_cluster|entry.maxnctapersm": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|redux.sync.min.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|redux.sync.max.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|redux.sync.max.abs.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|redux.sync.max.NaN.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|redux.sync.add.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|tcgen05.alloc": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|tcgen05.ld": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|tcgen05.commit": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|wgmma.fence": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|wgmma.commit_group": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "7_misc|wgmma.mma_async.m64n8k16.f16": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e4m3x2.e2m1x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e5m2x2.e2m1x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e4m3.e2m1": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e2m1x2.e4m3x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e2m1x2.e5m2x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e4m3x2.e3m2x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e3m2x2.e4m3x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G3_conv|e4m3x2.e2m3x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G1_simd|add.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|add.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|sub.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|sub.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|min.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|min.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|max.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|max.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|neg.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|neg.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G1_simd|add.sat.u16x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|add.sat.s16x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|add.sat.u32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|sub.sat.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|add.sat.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|add.sat.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "G1_simd|vabsdiff.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G1_simd|vabsdiff.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G1_simd|absdiff.u8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "G1_simd|absdiff.s8x4": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "12_fp32_64|rcp.rn.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "ISETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "12_fp32_64|rcp.rz.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "ISETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "12_fp32_64|rcp.rm.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "ISETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "12_fp32_64|rcp.rp.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "ISETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "12_fp32_64|sqrt.rn.f32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "ISETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "12_fp32_64|div.rn.f64": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "MUFU",
+     "FSETP",
+     "DFMA",
+     "DFMA",
+     "DFMA",
+     "DFMA",
+     "DFMA",
+     "DMUL",
+     "DFMA",
+     "DFMA",
+     "FFMA",
+     "FSETP",
+     "CALL"
+    ],
+    "consumer": [
+     "MUFU",
+     "HFMA2",
+     "UFSETP",
+     "DFMA",
+     "DFMA",
+     "DFMA",
+     "DFMA",
+     "DFMA",
+     "DMUL",
+     "DFMA",
+     "DFMA",
+     "FFMA",
+     "FSETP",
+     "CALL"
+    ]
+   }
+  },
+  "12_fp32_64|fma.rn.oob.f32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "12_fp32_64|rcp.rn.f64": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "FSETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "FSETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "12_fp32_64|sqrt.rn.f64": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "ISETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "12_fp32_64|rsqrt.approx.f64": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VIADD",
+     "ISETP",
+     "CALL"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "CALL",
+     "HFMA2"
+    ]
+   }
+  },
+  "21_atomic|atom.global.min.s32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VOTEU",
+     "CREDUX",
+     "UFLO",
+     "ISETP",
+     "REDG"
+    ],
+    "consumer": [
+     "REDUX",
+     "VOTEU",
+     "UFLO",
+     "ISETP",
+     "REDG"
+    ]
+   }
+  },
+  "21_atomic|atom.global.min.u32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VOTEU",
+     "CREDUX",
+     "UFLO",
+     "ISETP",
+     "REDG"
+    ],
+    "consumer": [
+     "REDUX",
+     "VOTEU",
+     "UFLO",
+     "ISETP",
+     "REDG"
+    ]
+   }
+  },
+  "21_atomic|red.global.min.s32": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "VOTEU",
+     "CREDUX",
+     "UFLO",
+     "ISETP",
+     "REDG"
+    ],
+    "consumer": [
+     "REDUX",
+     "VOTEU",
+     "UFLO",
+     "ISETP",
+     "REDG"
+    ]
+   }
+  },
+  "22_warp|vote.all.pred": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "22_warp|vote.ballot.b32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "22_warp|shfl.up.b32": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject",
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "23_video_simd|add.sat.s16x2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_100a": "reject"
+   }
+  },
+  "24_special|alloca.u64": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [],
+    "consumer": [
+     "IADD"
+    ]
+   }
+  },
+  "25_tensor_extra|cp.async.bulk.tensor.2d.g2s.cta_group2": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "25_tensor_extra|cp.async.bulk.g2s.cluster.multicast": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "UPRMT",
+     "ELECT",
+     "UBLKCP"
+    ],
+    "consumer": [
+     "ISETP",
+     "ISETP",
+     "LEPC",
+     "CALL",
+     "USHF",
+     "UPRMT",
+     "ELECT",
+     "UBLKCP"
+    ]
+   }
+  },
+  "25_tensor_extra|cp.async.bulk.tensor.2d.g2s.cluster.multicast": {
+   "category": "camp-split:opcode",
+   "detail": {
+    "dc": [
+     "UPRMT",
+     "ELECT",
+     "UTMALDG"
+    ],
+    "consumer": [
+     "IADD",
+     "ISETP",
+     "ISETP",
+     "STL",
+     "LEPC",
+     "CALL",
+     "ELECT",
+     "UTMALDG"
+    ]
+   }
+  },
+  "25_tensor_extra|tcgen05.mma.f16": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "25_tensor_extra|tcgen05.mma.mxf4nvf4.blockscale": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "25_tensor_extra|tcgen05.cp": {
+   "category": "compile-fail",
+   "detail": {
+    "sm_120a": "reject",
+    "sm_121a": "reject"
+   }
+  },
+  "30_fabric|fabric.try_get": {
+   "category": "camp-split:trap",
+   "detail": {
+    "dc": [
+     "ULEA",
+     "USHF",
+     "ELECT",
+     "UBLKCP"
+    ],
+    "consumer": [
+     "BPT"
+    ]
+   }
+  },
+  "30_fabric|fabric.try_put": {
+   "category": "camp-split:trap",
+   "detail": {
+    "dc": [
+     "ULEA",
+     "USHF",
+     "SYNCS",
+     "UBLKCP"
+    ],
+    "consumer": [
+     "BPT"
+    ]
+   }
+  },
+  "30_fabric|fabric.try_put.multimem": {
+   "category": "camp-split:trap",
+   "detail": {
+    "dc": [
+     "ULEA",
+     "USHF",
+     "SYNCS",
+     "UBLKCP"
+    ],
+    "consumer": [
+     "BPT"
+    ]
+   }
+  },
+  "30_fabric|fabric.try_red.add.u32": {
+   "category": "camp-split:trap",
+   "detail": {
+    "dc": [
+     "ULEA",
+     "USHF",
+     "SYNCS",
+     "ELECT",
+     "UBLKRED"
+    ],
+    "consumer": [
+     "BPT"
+    ]
+   }
+  },
+  "31_multimem_async|multimem.st.async.release.sys.f32": {
+   "category": "camp-split:errbar",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "MEMBAR",
+     "USTGR"
+    ],
+    "consumer": [
+     "MEMBAR",
+     "ERRBAR",
+     "CGAERRBAR",
+     "STG"
+    ]
+   }
+  },
+  "31_multimem_async|multimem.red.async.release.sys.add.u32": {
+   "category": "camp-split:errbar",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "MEMBAR",
+     "UREDGR"
+    ],
+    "consumer": [
+     "MEMBAR",
+     "ERRBAR",
+     "CGAERRBAR",
+     "REDG"
+    ]
+   }
+  },
+  "33_async_scope|red.async.release.sys.add.u32": {
+   "category": "camp-split:errbar",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "MEMBAR",
+     "UREDGR"
+    ],
+    "consumer": [
+     "MEMBAR",
+     "ERRBAR",
+     "CGAERRBAR",
+     "REDG"
+    ]
+   }
+  },
+  "33_async_scope|red.async.release.sys.min.s32": {
+   "category": "camp-split:errbar",
+   "detail": {
+    "dc": [
+     "ELECT",
+     "MEMBAR",
+     "UREDGR"
+    ],
+    "consumer": [
+     "MEMBAR",
+     "ERRBAR",
+     "CGAERRBAR",
+     "REDG"
+    ]
+   }
+  }
+ }
+}
